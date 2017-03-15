@@ -32,6 +32,7 @@ func init() {
 	StatusCode[601] = "System error"
 	StatusCode[701] = "There is no resources"
 	StatusCode[702] = "ERROR"
+	StatusCode[703] = "no method"
 }
 
 type ResponseResult struct {

@@ -5,6 +5,10 @@ type ResourceQuery struct {
 }
 
 
+type SetFileUrl struct {
+	FileUrl string `json:"file_url"`
+}
+
 type ResourceLocation struct {
 	// 资源位置
 	Team_uuid string `json:"team_uuid" db:"team_uuid"`  // 组织 uuid 区分不同用户
