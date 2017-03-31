@@ -52,6 +52,8 @@ func RequestResult(code int, ret interface{}) (rel ResponseResult) {
 
 
 
+
+
 func HttpRequestResult(w http.ResponseWriter, code int, ret interface{}) {
 	request := ResponseResult{
 		Status: code,
@@ -65,5 +67,18 @@ func HttpRequestResult(w http.ResponseWriter, code int, ret interface{}) {
 		fmt.Errorf("HttpRequestResult is error : %s", err.Error())
 	}
 	io.WriteString(w, string(s))
+}
 
+
+func HttpRequestResultString(code int, ret interface{}) (string) {
+	request := ResponseResult{
+		Status: code,
+		Msg: StatusCode[code],
+		Result: ret,
+	}
+	s, err := json.Marshal(request)
+	if err != nil {
+		fmt.Errorf("HttpRequestResult is error : %s", err.Error())
+	}
+	return string(s)
 }
